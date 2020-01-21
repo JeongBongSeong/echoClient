@@ -4,7 +4,7 @@ node {
     }
     stage ('gradlew build') {
         if(isUnix()) {
-            sh './gradlew clean build'
+            sh 'sudo ./gradlew clean build'
         }
         else{
             bat 'gradlew.bat clean build'
@@ -12,7 +12,7 @@ node {
     }
     stage ('Packaging'){
         if(isUnix()) {
-            sh './gradlew clean bootjar'
+            sh 'sudo ./gradlew clean bootjar'
         }
         else{
             bat 'gradlew.bat clean bootjar'
@@ -20,7 +20,7 @@ node {
     }
     stage ('Docker Build'){
         if(isUnix()) {
-            sh '/*sudo */docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
+            sh 'sudo docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
         }
         else{
             bat 'docker build -t jarc . && docker login && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
