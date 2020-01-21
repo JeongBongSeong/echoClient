@@ -23,7 +23,7 @@ node {
             sh '/*sudo */docker build -t echoClient .'
         }
         else{
-            bat 'docker build -t echoClient .'
+            bat 'docker build -t jarc .'
         }
     }
 }
