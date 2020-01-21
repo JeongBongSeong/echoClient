@@ -20,10 +20,10 @@ node {
     }
     stage ('Docker Build'){
         if(isUnix()) {
-            sh '/*sudo */docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc:0.1'
+            sh '/*sudo */docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
         }
         else{
-            bat 'docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc:0.1'
+            bat 'docker build -t jarc . && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
         }
     }
 }
