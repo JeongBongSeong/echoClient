@@ -10,4 +10,12 @@ node {
             bat 'gradlew.bat build'
         }
     }
+    stage ('Packaging'){
+        if(isUnix()) {
+            sh './gradlew bootjar'
+        }
+        else{
+            bat 'gradlew.bat bootjar'
+        }
+    }
 }
