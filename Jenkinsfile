@@ -1,5 +1,5 @@
 node {
-        stage ('clone') {
+    stage ('clone') {
         checkout scm
     }
     stage ('gradlew build') {
@@ -25,5 +25,8 @@ node {
         else{
             bat 'docker build -t jarc .'
         }
+    }
+    stage ('Docker push'){
+        sh 'docker push qhdtjd0104/jarc:0.1'
     }
 }
