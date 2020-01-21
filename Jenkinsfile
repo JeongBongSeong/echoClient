@@ -20,13 +20,13 @@ node {
     }
     stage ('Docker Build'){
         if(isUnix()) {
-            sh '/*sudo */docker build -t echoClient .'
+            sh '/*sudo */docker build -t jarc . && docker push qhdtjd0104/jarc:0.1'
         }
         else{
-            bat 'docker build -t jarc .'
+            bat 'docker build -t jarc . && docker push qhdtjd0104/jarc:0.1'
         }
     }
-    stage ('Docker push'){
-        sh 'docker push qhdtjd0104/jarc:0.1'
-    }
+//    stage ('Docker push'){
+//        sh 'docker push qhdtjd0104/jarc:0.1'
+//    }
 }
