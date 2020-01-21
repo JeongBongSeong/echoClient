@@ -18,4 +18,7 @@ node {
             bat 'gradlew.bat bootjar'
         }
     }
+    stage ('Docker Build'){
+        sh 'docker build -t echoClient .'
+    }
 }
