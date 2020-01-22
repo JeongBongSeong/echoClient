@@ -23,7 +23,7 @@ node {
             sh '/*sudo */docker build -t jarc .'//&& /*sudo */docker tag jarc qhdtjd0104/jarc:latest && /*sudo */docker push qhdtjd0104/jarc'
         }
         else{
-            bat 'docker build -t jarc .'// &&/*//젠킨스에서는 쓸 수 없는 명령어 docker login*/ && docker tag jarc qhdtjd0104/jarc:latest && docker push qhdtjd0104/jarc'
+            bat 'docker build -t jarc . &&/*//젠킨스에서는 쓸 수 없는 명령어 docker login && */ docker tag jarc localhost:5000/jarc:latest && docker push localhost:5000/jarc'
         }
     }
 }
