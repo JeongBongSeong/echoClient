@@ -23,7 +23,7 @@ node {
             sh 'docker build -t jarc .'//&& /*sudo */docker tag jarc qhdtjd0104/jarc:latest && /*sudo */docker push qhdtjd0104/jarc'
         }
         else{
-            bat 'docker build -t jarc . && docker tag jarc localhost:5000/jarc:latest && docker push localhost:5000/jarc'
+            bat 'docker build -t jarc . && docker tag jarc:latest localhost:5001/jarc:latest && docker push localhost:5001/jarc'
         }
     }
 }
