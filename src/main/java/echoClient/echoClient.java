@@ -13,7 +13,7 @@ public class echoClient {
 
     public static void main(String[] args) {
 
-        String ip = "localhost";
+        String ip = "10.10.70.29";
         int port = 7778;
 
         Socket mSocket;
