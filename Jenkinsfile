@@ -10,6 +10,14 @@ node {
             bat 'gradlew.bat clean build'
         }
     }
+    stage ('analysis'){
+        if(isUnix()) {
+            sh './gradlew check'
+        }
+        else{
+            bat 'gradlew.bat check'
+        }
+    }
     stage ('Packaging'){
         if(isUnix()) {
             sh './gradlew clean bootjar'
