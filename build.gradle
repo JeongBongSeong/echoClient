@@ -12,7 +12,7 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
-//    id 'pmd'
+    id 'pmd'
     id 'checkstyle'
     id 'org.springframework.boot' version '2.0.8.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
@@ -46,10 +46,11 @@ application {
     // Define the main class for the application.
     mainClassName = 'echoClient.echoClient'
 }
-/*pmd {
-    toolVersion = '5.5.1' // PMD 버전별로 버그가 있을 수 있어 버그 없는 특정 버전을 명시해야 할 수 있음.
-    ignoreFailures = true // 위반이 있어도 report만하고 넘어감
-}*/
+
+pmd {
+    ignoreFailures = true
+    ruleSetFiles = files("config/pmd/ruleset.xml")
+}
 
 checkstyle {
     toolVersion = 7.1
