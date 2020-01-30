@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class echoClient {
+public class EchoClient {
 
     public static void main(String[] args) {
 
