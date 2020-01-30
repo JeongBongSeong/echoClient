@@ -6,7 +6,7 @@ package echoClient;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class EechoClientTest {
+public class EchoClientTest {
     @Test public void testAppHasAGreeting() {
         EchoClient classUnderTest = new EchoClient();
         assertNotNull("app should have a greeting", classUnderTest);
