@@ -2,12 +2,12 @@ node {
     stage ('clone') {
         checkout scm
     }
-    stage ('gradlew build') {
+    stage ('clean') {
         if(isUnix()) {
-            sh './gradlew clean build'
+            sh './gradlew clean'
         }
         else{
-            bat 'gradlew.bat clean build'
+            bat 'gradlew.bat clean'
         }
     }
     stage ('analysis'){
@@ -22,6 +22,15 @@ node {
             pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/build/reports//pmd/main.xml', unHealthy: ''
         }
     }
+    stage ('build') {
+        if(isUnix()) {
+            sh './gradlew build'
+        }
+        else{
+            bat 'gradlew.bat build'
+        }
+    }
+    
     stage ('Packaging'){
         if(isUnix()) {
             sh './gradlew clean bootjar'
