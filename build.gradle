@@ -14,8 +14,8 @@ plugins {
     id 'application'
     id 'pmd'
     id 'checkstyle'
-    id 'org.springframework.boot' version '2.0.8.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    //id 'org.springframework.boot' version '2.0.8.RELEASE'
+    //id 'io.spring.dependency-management' version '1.0.9.RELEASE'
 }
 //group ='echoClient'
 version = '0.0.1-SNAPSHOT'
@@ -24,20 +24,14 @@ sourceCompatibility = '1.8'
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
-    google()
+    mavenCentral()
     jcenter()
 }
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
-    /*implementation ('io.socket:socket.io-client:1.0.0'){
-        exclude group: 'org.json', module: 'json'
-    }*/
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
@@ -45,6 +39,14 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClassName = 'echoClient.EchoClient'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'echoClient.EchoClient'
+        )
+    }
 }
 
 pmd {
