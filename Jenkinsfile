@@ -22,21 +22,12 @@ node {
             pmd canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '**/build/reports//pmd/main.xml', unHealthy: ''
         }
     }
-    stage ('build') {
+    stage ('build && Packaging') {
         if(isUnix()) {
             sh './gradlew build'
         }
         else{
             bat 'gradlew.bat build'
-        }
-    }
-    
-    stage ('Packaging'){
-        if(isUnix()) {
-            sh './gradlew clean bootjar'
-        }
-        else{
-            bat 'gradlew.bat clean bootjar'
         }
     }
     stage ('Docker Build'){
